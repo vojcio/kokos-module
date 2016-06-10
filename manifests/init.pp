@@ -50,10 +50,6 @@ vcsrepo { '/opt/elk_repo':
   source   => 'https://github.com/deviantony/docker-elk',
 }
 
-#ensure that manifest will not mess up our kernel...
-class { 'docker':
-  manage_kernel => false,
-}
 ##compose...
 docker_compose { '/opt/elk_repo/docker-compose.yml':
   ensure  => present,
