@@ -42,6 +42,7 @@ include 'docker_compose'
 
 #install docker composer
 #class { 'docker_compose': }
+package { 'python-pip': ensure => 'installed', }
 
 ##clone ELK-stack docker repo
 vcsrepo { '/opt/elk_repo':
