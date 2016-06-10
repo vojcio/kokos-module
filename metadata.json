@@ -1,0 +1,14 @@
+{
+  "name": "kryss-kokos",
+  "version": "0.1.0",
+  "author": "kryss",
+  "summary": "kokos vm",
+  "license": "Apache 2.0",
+  "source": "",
+  "project_page": null,
+  "issues_url": "my email",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
