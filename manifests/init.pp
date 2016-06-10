@@ -29,11 +29,11 @@
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Wojciech Krysmann
 #
 # === Copyright
 #
-# Copyright 2016 Your name here, unless otherwise noted.
+# Copyright 2016 Wojciech Krysmann, unless otherwise noted.
 #
 class kryss-kokos {
 
