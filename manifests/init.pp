@@ -35,14 +35,26 @@
 #
 # Copyright 2016 Wojciech Krysmann, unless otherwise noted.
 #
-class kryss-kokos {
+class kokos-module {
 
 include 'docker'
 include 'docker_compose'
 
-#install docker composer
-#class { 'docker_compose': }
-package { 'python-pip': ensure => 'installed', }
+#prepare python env
+class { 'python' :
+  version    => 'system',
+  pip        => 'present',
+  dev        => 'absent',
+  virtualenv => 'absent',
+  gunicorn   => 'absent',
+}
+
+python::pip { 'elasticsearch' :
+  pkgname       => 'elasticsearch',
+  ensure        => 'latest',
+  timeout       => 1800,
+  require 	=> Class['python'],
+ }
 
 ##clone ELK-stack docker repo
 vcsrepo { '/opt/elk_repo':
@@ -54,6 +66,7 @@ vcsrepo { '/opt/elk_repo':
 ##compose...
 docker_compose { '/opt/elk_repo/docker-compose.yml':
   ensure  => present,
+  require => Vcsrepo['/opt/elk_repo'],
 }
 
 }
